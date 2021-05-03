@@ -1,0 +1,396 @@
+@import url(fonts.css);
+
+body {
+  margin: 0;
+}
+
+@mixin text(
+  $font-family,
+  $font-weight,
+  $font-size,
+  $line-height,
+  $letter-spacing,
+  $color
+) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}
+
+@mixin section-padding {
+  padding: 80px 0 100px 0;
+}
+
+.heading-2 {
+  text-align: center;
+  margin: 0;
+  @include text("georgia-regular", normal, 35px, 45px, 0.06em, #545454);
+
+  &_white {
+    color: #ffffff;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.button {
+  background-color: #f1cdb3;
+  border: 2px solid #f1cdb3;
+  border-radius: 100px;
+  padding: 14px 43px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s linear, border-color 0.3s linear;
+
+  @include text("georgia-regular", normal, 17px, 22px, 0.06em, #292929);
+
+  &:hover {
+    background-color: #fddcc4;
+    border-color: #fddcc4;
+  }
+
+  &_white {
+    background-color: #fff;
+  }
+
+  &_inactive {
+    pointer-events: none;
+  }
+}
+
+.header {
+  padding: 31px 0 30px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &__title {
+    margin: 0 0 10px 0;
+    @include text("georgia-regular", normal, 32px, 35px, 0.06em, #545454);
+  }
+
+  &__subtitle {
+    margin: 0;
+    @include text("arial-regular", normal, 13px, 15px, 0.1em, #292929);
+  }
+}
+
+.nav {
+
+  &__burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 40px;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__items {
+    position: relative;
+    margin-left: 36px;
+    margin-bottom: 4px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(2):before {
+      display: block;
+      top: 23px;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 3px;
+      background-color: #f1cdb3;
+    }
+
+    &:nth-child(2) .nav__links {
+      color: #292929;
+    }
+  }
+
+  &__links {
+    text-decoration: none;
+    @include text("arial-regular", normal, 15px, 24px, normal, #545454);
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: #292929;
+    }
+  }
+}
+
+.main {
+  background-color: #f6f6f6;
+}
+
+.our-pets {
+  @include section-padding();
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0 0 45px 0;
+  }
+}
+
+.pets {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-row-gap: 30px;
+  grid-column-gap: 40px;
+  margin: 0 0 45px 0;
+  padding: 15px 0;
+
+  &__block {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 9px;
+    transition: box-shadow 0.3s linear;
+
+    &:hover {
+      box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    }
+  }
+
+  &__name {
+    @include text("georgia-regular", normal, 20px, 23px, 0.06em, #545454);
+    margin: 30px 0;
+  }
+
+  &__btn {
+    margin: 0 0px 30px 0;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+
+  .button {
+    margin-left: 20px;
+
+    @include text("georgia-regular", normal, 20px, 23px, 0.06em, #292929);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__first,
+  &__prev {
+    transform: scale(-1, 1);
+    border-color: #cdcdcd;
+
+    img {
+      filter: invert(94%) sepia(0%) saturate(991%) hue-rotate(140deg)
+        brightness(93%) contrast(81%);
+    }
+  }
+
+  &__number {
+    padding: 10px 20px 15px 19px;
+  }
+  &__prev,
+  &__next {
+    padding: 11px 18px 13px 18px;
+  }
+
+  &__first,
+  &__last {
+    padding: 10px 10px 15px 14px;
+  }
+}
+
+.footer {
+  background-image: url(../../assets/images/footer-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 40px 0 0 0;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    padding: 16px 0 17px 0;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.contacts {
+  margin: 0 160px 0 0;
+
+  &__title {
+    text-align: left;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-items {
+    display: flex;
+    align-items: center;
+    margin: 42px 0 44px 0;
+  }
+
+  &__list-links {
+    text-decoration: none;
+    margin: 0 0 0 20px;
+    @include text("georgia-regular", normal, 20px, 23px, 0.06em, #f1cdb3);
+  }
+}
+
+.address {
+  &__title {
+    text-align: left;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-items {
+    display: flex;
+    align-items: center;
+    margin: 33px 0;
+  }
+
+  &__list-links {
+    text-decoration: none;
+    margin: 0 0 0 20px;
+    @include text("georgia-regular", normal, 20px, 23px, 0.06em, #f1cdb3);
+  }
+}
+
+@media (max-width: 1200px) {
+  .pets {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .container {
+    padding: 0 30px;
+  }
+
+  .nav {
+    &__burger-btn {
+      display: block;
+    }
+
+    &__list {
+      display: none;
+    }
+  }
+
+  .pets {
+    grid-template-columns: repeat(2, auto);
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  .footer {
+    padding: 30px 0 0 0;
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    &__img {
+      position: static;
+      margin: 0 auto;
+    }
+  }
+
+  .contacts {
+    margin: 0 60px 60px 0;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .our-pets__title {
+    @include text("georgia-regular", normal, 25px, 32px, 0.06em, #545454);
+  }
+
+  .pets {
+    grid-template-columns: repeat(1, auto);
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  .pagination {
+    .button {
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .footer {
+
+    &__inner {
+      flex-direction: column;
+    }
+    
+    &__img {
+      margin: 0;
+    }
+  }
+
+  .contacts {
+    margin: 0;
+  }
+}
